@@ -19,16 +19,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // set initial currentValue
-        currentValue = lroundf(slider.value)
-        
-        // set initial target value
-        targetValue = Int(arc4random_uniform(100))
+        // start a new round
+        startNewRound()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func startNewRound() {
+        // set random target value
+        targetValue = Int(arc4random_uniform(100))
+        
+        // set default currentValue to 50
+        currentValue = 50
+        slider.value = Float(currentValue)
     }
 
     @IBAction func showAlert() {
@@ -39,6 +45,9 @@ class ViewController: UIViewController {
         
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
+        
+        // restart round
+        startNewRound()
     }
     
     @IBAction func sliderMoved(slider: UISlider) {
