@@ -283,6 +283,7 @@
 				1757E7451BDDDBFE009648F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
