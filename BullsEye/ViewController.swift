@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var currentValue: Int = 0
+    var targetValue: Int = 0
     
     @IBOutlet weak var slider:UISlider!
 
@@ -20,6 +21,9 @@ class ViewController: UIViewController {
         
         // set initial currentValue
         currentValue = lroundf(slider.value)
+        
+        // set initial target value
+        targetValue = Int(arc4random_uniform(100))
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +33,7 @@ class ViewController: UIViewController {
 
     @IBAction func showAlert() {
         let message = "The value of the slider is: \(currentValue)"
+                    + "\n The target value is: \(targetValue)"
         let alert = UIAlertController(title: "Hello World!", message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
