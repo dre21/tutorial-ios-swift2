@@ -10,8 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let MAX_POINT: Int = 100
+    
     var currentValue: Int = 0
     var targetValue: Int = 0
+    var score: Int = 0
+    var round = 0
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var targetLabel: UILabel!
@@ -40,18 +44,34 @@ class ViewController: UIViewController {
         currentValue = 50
         slider.value = Float(currentValue)
         
+        // increase round
+        round += 1
+        
         // update labels
         updateLabels();
     }
     
     func updateLabels() {
-        // updte target label
         targetLabel.text = String(targetValue)
+        scoreLabel.text = String(score)
+        roundLabel.text = String(round)
+    }
+    
+    func calculatePoint(target:Int, value:Int) -> Int {
+        return MAX_POINT - abs(target - value)
     }
 
     @IBAction func showAlert() {
+        // calculate point & update score
+        let point = calculatePoint(targetValue,value: currentValue)
+        score += point
+        
+        // show message
         let message = "The value of the slider is: \(currentValue)"
                     + "\n The target value is: \(targetValue)"
+                    + "\n You scored \(point) points"
+                    + "\n Your total score is: \(score)"
+                    + "\n Current round: \(round)"
         let alert = UIAlertController(title: "Hello World!", message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
@@ -63,6 +83,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startOver() {
+        score = 0
+        round = 0
+        startNewRound()
     }
     
     @IBAction func showInfo() {
