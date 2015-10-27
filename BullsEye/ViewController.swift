@@ -10,10 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let MAX_SCORE: Int = 100
+    let MAX_POINT: Int = 100
     
     var currentValue: Int = 0
     var targetValue: Int = 0
+    var score: Int = 0
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var targetLabel: UILabel!
@@ -51,14 +52,20 @@ class ViewController: UIViewController {
         targetLabel.text = String(targetValue)
     }
     
-    func calculateScore(target:Int, value:Int) -> Int {
-        return MAX_SCORE - abs(target - value)
+    func calculatePoint(target:Int, value:Int) -> Int {
+        return MAX_POINT - abs(target - value)
     }
 
     @IBAction func showAlert() {
+        // calculate point & update score
+        let point = calculatePoint(targetValue,value: currentValue)
+        score += point
+        
+        // show message
         let message = "The value of the slider is: \(currentValue)"
                     + "\n The target value is: \(targetValue)"
-            + "\n Your score is: \(calculateScore(targetValue,value: currentValue))"
+                    + "\n You scored \(point) points"
+                    + "\n Your total score is: \(score)"
         let alert = UIAlertController(title: "Hello World!", message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
