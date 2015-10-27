@@ -13,7 +13,11 @@ class ViewController: UIViewController {
     var currentValue: Int = 0
     var targetValue: Int = 0
     
-    @IBOutlet weak var slider:UISlider!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var roundLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,14 @@ class ViewController: UIViewController {
         // set default currentValue to 50
         currentValue = 50
         slider.value = Float(currentValue)
+        
+        // update labels
+        updateLabels();
+    }
+    
+    func updateLabels() {
+        // updte target label
+        targetLabel.text = String(targetValue)
     }
 
     @IBAction func showAlert() {
@@ -48,6 +60,12 @@ class ViewController: UIViewController {
         
         // restart round
         startNewRound()
+    }
+    
+    @IBAction func startOver() {
+    }
+    
+    @IBAction func showInfo() {
     }
     
     @IBAction func sliderMoved(slider: UISlider) {
