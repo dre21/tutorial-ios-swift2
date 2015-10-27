@@ -108,10 +108,10 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="myLabel" destination="x2z-tK-4pe" id="wLH-AP-Orf"/>
                         <outlet property="roundLabel" destination="AdD-F4-pNR" id="LM6-sx-xwM"/>
                         <outlet property="scoreLabel" destination="Jrl-Dw-o1w" id="bwb-Cf-4mT"/>
                         <outlet property="slider" destination="9By-3s-uYe" id="AZJ-Pu-Z3P"/>
+                        <outlet property="targetLabel" destination="x2z-tK-4pe" id="u1y-CR-0Zm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
