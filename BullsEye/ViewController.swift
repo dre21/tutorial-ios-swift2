@@ -52,8 +52,9 @@ class ViewController: UIViewController {
     }
     
     func updateLabels() {
-        // updte target label
         targetLabel.text = String(targetValue)
+        scoreLabel.text = String(score)
+        roundLabel.text = String(round)
     }
     
     func calculatePoint(target:Int, value:Int) -> Int {
