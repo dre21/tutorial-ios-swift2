@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let MAX_SCORE: Int = 100
+    
     var currentValue: Int = 0
     var targetValue: Int = 0
     
@@ -48,10 +50,15 @@ class ViewController: UIViewController {
         // updte target label
         targetLabel.text = String(targetValue)
     }
+    
+    func calculateScore(target:Int, value:Int) -> Int {
+        return MAX_SCORE - abs(target - value)
+    }
 
     @IBAction func showAlert() {
         let message = "The value of the slider is: \(currentValue)"
                     + "\n The target value is: \(targetValue)"
+            + "\n Your score is: \(calculateScore(targetValue,value: currentValue))"
         let alert = UIAlertController(title: "Hello World!", message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
