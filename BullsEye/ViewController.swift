@@ -83,6 +83,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startOver() {
+        score = 0
+        round = 0
+        startNewRound()
     }
     
     @IBAction func showInfo() {
