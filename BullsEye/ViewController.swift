@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var currentValue: Int = 0
     var targetValue: Int = 0
     var score: Int = 0
+    var round = 0
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var targetLabel: UILabel!
@@ -43,6 +44,9 @@ class ViewController: UIViewController {
         currentValue = 50
         slider.value = Float(currentValue)
         
+        // increase round
+        round += 1
+        
         // update labels
         updateLabels();
     }
@@ -66,6 +70,7 @@ class ViewController: UIViewController {
                     + "\n The target value is: \(targetValue)"
                     + "\n You scored \(point) points"
                     + "\n Your total score is: \(score)"
+                    + "\n Current round: \(round)"
         let alert = UIAlertController(title: "Hello World!", message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         
